@@ -81,8 +81,8 @@
     
     NSString *customedRulesFilePath = @"/var/mobile/Library/varClean/varCleanRules-custom.plist";
     if(![NSFileManager.defaultManager fileExistsAtPath:customedRulesFilePath]) {
-        NSDictionary* template = [[NSDictionary alloc] init];
-        assert([template writeToFile:customedRulesFilePath atomically:YES]);
+        NSString *customRulesPath = [NSBundle.mainBundle pathForResource:@"varCleanRules-custom" ofType:@"plist"];
+        assert([NSFileManager.defaultManager copyItemAtPath:customRulesPath toPath:customedRulesFilePath error:&err]);
     }
     
     self.window = UIWindow.alloc.init;
@@ -131,7 +131,7 @@
         int status=0;
         waitpid(pid, &status, 0);
     }
-    
+    /*
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         
         int s = socket(AF_INET, SOCK_STREAM, 0);
@@ -147,7 +147,7 @@
         
         close(s);
     });
-    
+    */
     
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         

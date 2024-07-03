@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>/var/mobile</key>
+	<dict>
+		<key>whitelist</key>
+		<array>
+			<string>Applications</string>
+			<string>Containers</string>
+			<string>Documents</string>
+			<string>Downloads</string>
+			<string>Library</string>
+			<string>Media</string>
+			<string>MobileSoftwareUpdate</string>
+			<string>iFile</string>
+			<string>newFakePath.plist</string>
+			<string>zp.inject.plist</string>
+		</array>
+	</dict>
+	<key>/var/mobile/Documents</key>
+	<dict>
+		<key>whitelist</key>
+		<array>
+			<string>archives</string>
+			<string>Downloads</string>
+			<string>CopyVault</string>
+			<string>DumpDecrypter</string>
+			<string>wiki.qaq.chromatic</string>
+			<string>newLaunchDaemon.txt</string>
+		</array>
+	</dict>
+	<key>/var/mobile/Library</key>
+	<dict>
+		<key>whitelist</key>
+		<array>
+			<string>varClean</string>
+		</array>
+	</dict>
+	<key>/var/mobile/Library/Saved Application State</key>
+	<dict>
+		<key>whitelist</key>
+		<array>
+			<string>com.m1337.varclean.savedState</string>
+		</array>
+	</dict>
+	<key>/var/mobile/Library/Application Support</key>
+	<dict>
+		<key>blacklist</key>
+		<array>
+			<string>com.bugsnag.Bugsnag</string>
+		</array>
+	</dict>
+	<key>/var/root/Library</key>
+	<dict>
+		<key>blacklist</key>
+		<array>
+			<string>Saved Application State</string>
+		</array>
+	</dict>
+</dict>
+</plist>
