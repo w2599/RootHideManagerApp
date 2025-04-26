@@ -232,7 +232,7 @@
         [AppDelegate showMessage:[NSString stringWithFormat:@"%@: %@",Localized(@"Unknown preboot system"),activedBootHash] title:Localized(@"Error")];
     }
 
-    
+    /*
     NSArray* defaultBindMounts = @[
         @"/usr/standalone/firmware",
         @"/System/Library/Pearl/ReferenceFrames",
@@ -260,7 +260,7 @@
         
         [AppDelegate showMessage:[items componentsJoinedByString:@"\n"] title:Localized(@"Unknown Bindfs Mount(s) Detected")];
     }
-    
+    */
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         
         int s = socket(AF_INET, SOCK_STREAM, 0);
