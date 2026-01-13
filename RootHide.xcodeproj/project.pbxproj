@@ -411,7 +411,7 @@
 					"$(PROJECT_DIR)/RootHide/roothide",
 				);
 				MARKETING_VERSION = 5.2;
-				PRODUCT_BUNDLE_IDENTIFIER = com.roothide.manager;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.zqbb.manager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTS_MACCATALYST = NO;
@@ -451,7 +451,7 @@
 					"$(PROJECT_DIR)/RootHide/roothide",
 				);
 				MARKETING_VERSION = 5.2;
-				PRODUCT_BUNDLE_IDENTIFIER = com.roothide.manager;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.zqbb.manager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTS_MACCATALYST = NO;

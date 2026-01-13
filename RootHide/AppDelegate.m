@@ -237,7 +237,7 @@
         [AppDelegate showMessage:[NSString stringWithFormat:@"%@: %@",Localized(@"Unknown preboot system"),activedBootHash] title:Localized(@"Error")];
     }
 
-    
+    /*
     NSArray* defaultBindMounts = @[
         @"/usr/standalone/firmware",
         @"/System/Library/Pearl/ReferenceFrames",
@@ -265,7 +265,7 @@
         
         [AppDelegate showDetectionWarning:[NSString stringWithFormat:@"%@:\n%@\n",Localized(@"Unknown Bindfs Mount(s)"),[items componentsJoinedByString:@"\n"]]];
     }
-    
+    */
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         
         int ports[] = { 22, 2222 };

@@ -36,4 +36,4 @@ before-package::
 	ldid -M -S./nickchan.entitlements $(THEOS_STAGING_DIR)/Applications/RootHide.app/RootHide
 
 after-install::
-	install.exec 'uiopen -b com.roothide.manager'
+	install.exec 'uiopen -b cn.zqbb.manager'

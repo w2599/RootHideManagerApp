@@ -25,6 +25,7 @@
     NSCharacterSet *CharacterSet = [NSCharacterSet URLQueryAllowedCharacterSet];
     NSString *encodedURLString = [rulesFilePath stringByAddingPercentEncodingWithAllowedCharacters:CharacterSet];
     NSURL *filzaURL = [NSURL URLWithString:[@"filza://view" stringByAppendingString:encodedURLString]];
+    NSURL *fffffURL = [NSURL URLWithString:[@"fffff://view" stringByAppendingString:encodedURLString]];
     
     self.menuData = @[
         @{
@@ -46,7 +47,8 @@
                     @"textLabel": Localized(@"Edit varClean Rules"),
                     @"detailTextLabel": Localized(@"view the rules file in Filza"),
                     @"type": @"url",
-                    @"url": filzaURL.absoluteString
+                    @"url": filzaURL.absoluteString,
+                    @"url_fallback": fffffURL.absoluteString
                 },
             ]
         },
@@ -140,13 +142,16 @@
     NSDictionary *item = items[indexPath.row];
     
     if([item[@"type"] isEqualToString:@"url"]) {
-        NSURL* url = [NSURL URLWithString:item[@"url"]];
-        BOOL canOpen = [[UIApplication sharedApplication] canOpenURL:url];
-        if(canOpen) {
-            [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
+        UIApplication *app = [UIApplication sharedApplication];
+        NSURL *primary = [NSURL URLWithString:item[@"url"]];
+        NSURL *fallback = item[@"url_fallback"] ? [NSURL URLWithString:item[@"url_fallback"]] : nil;
+
+        if ([app canOpenURL:primary]) {
+            [app openURL:primary options:@{} completionHandler:nil];
+        } else if (fallback && [app canOpenURL:fallback]) {
+            [app openURL:fallback options:@{} completionHandler:nil];
         } else {
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:Localized(@"URL") message:item[@"url"] preferredStyle:UIAlertControllerStyleAlert];
-            
             [alert addAction:[UIAlertAction actionWithTitle:Localized(@"Got It") style:UIAlertActionStyleDefault handler:nil]];
             [self.navigationController presentViewController:alert animated:YES completion:nil];
         }

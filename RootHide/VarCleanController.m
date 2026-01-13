@@ -440,11 +440,31 @@ NSArray* GetDirectoryContents(NSString* path)
         NSArray *items = groupData[@"items"];
         NSMutableDictionary *item = items[indexPath.row];
         NSLog(@"open item %@", item);
-        NSURL* url = [NSURL URLWithString:[@"filza://view" stringByAppendingString:
-                                           [item[@"path"] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]] ];
-        
-        NSLog(@"open url %@", url);
-        [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
+        NSString *encodedPath = [item[@"path"] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+
+        NSURL *filzaURL = [NSURL URLWithString:[@"filza://view" stringByAppendingString:encodedPath]];
+        NSURL *fffffURL = [NSURL URLWithString:[@"fffff://view" stringByAppendingString:encodedPath]];
+
+        UIApplication *app = [UIApplication sharedApplication];
+
+        NSURL *urlToOpen = nil;
+        if ([app canOpenURL:filzaURL]) {
+            urlToOpen = filzaURL;
+        } else if ([app canOpenURL:fffffURL]) {
+            urlToOpen = fffffURL;
+        } else {
+            urlToOpen = filzaURL; // fallback: try filza anyway
+        }
+
+        NSLog(@"open url %@", urlToOpen);
+        [app openURL:urlToOpen options:@{} completionHandler:^(BOOL success){
+            if(!success) {
+                if (urlToOpen == filzaURL && [app canOpenURL:fffffURL]) {
+                    [app openURL:fffffURL options:@{} completionHandler:nil];
+                }
+            }
+        }];
+
         UIPasteboard.generalPasteboard.string = item[@"path"];
     }
 }
