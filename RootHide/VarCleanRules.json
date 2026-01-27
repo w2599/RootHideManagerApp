@@ -1,6 +1,7 @@
 {
 	"/var" : {
 		"whitelist":[
+			"OOPJit",
 			".DocumentRevisions-V100",
 			".fseventsd",
 			".overprovisioning_file",
@@ -186,6 +187,7 @@
 
 	"/var/mobile" : {
 		"whitelist":[
+            ".zqbb",
             ".fseventsd",
             ".DocumentRevisions-V100",
 			"Applications",
@@ -267,6 +269,10 @@
 	"/var/mobile/Library" : {
 		"whitelist":[
 			{"match":"regexp", "name":"^com\\.apple\\."},
+			"TextUnderstanding",
+			"ContactsMetadata",
+			"MediaML",
+			"SOS",
 			"Accessibility",
 			"CoreBrightness",
 			"Keyboard",
@@ -565,6 +571,7 @@
             {"match":"regexp", "name":"^TelephonyUI-\\d+$"},
             {"match":"regexp", "name":"^FamilyMarquee.*Mode-.*\\.png$"},
 			".com.apple.persistentconnection.settings.lock.lock",
+			"JetPackCache",
 			"Checkpoint.plist",
 			"CloudKit",
             "GameKit",
@@ -678,6 +685,8 @@
             "SoftwareUpdateCore",
             "CalNotificationsAvailable",
             "biokit_hw_issue_notification",
+			".zqbb",
+			"AudioCapture"
         ],
         "blacklist":[
         ]
