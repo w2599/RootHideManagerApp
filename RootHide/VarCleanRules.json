@@ -269,6 +269,7 @@
 	"/var/mobile/Library" : {
 		"whitelist":[
 			{"match":"regexp", "name":"^com\\.apple\\."},
+			"Stickers",
 			"TextUnderstanding",
 			"ContactsMetadata",
 			"MediaML",
@@ -530,6 +531,7 @@
             "networkserviceproxy",
             "Multitouch",
             "AskPermission",
+			"managedappdistributiond",
             
 		],
 		"blacklist":[
